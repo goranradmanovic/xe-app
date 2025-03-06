@@ -1,32 +1,22 @@
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT; // 8080
+require('dotenv').config()
 
-const headers = {
-	headers: {
-		"X-Master-Key": process.env.API_KEY
-	}
-};
+const express = require('express'),
+	app = express(),
+	PORT = process.env.PORT || 3000, // 8080
+	headersMiddleware = require('./middlewares/headers.middleware'),
+	apiRoutes = require('./routes/Api.routes')
 
-// API url and ID's
-const apiUrl = process.env.API_URL,
-	blocks = process.env.BIN_ID_BLOCKS,
-	transactions = process.env.BIN_ID_TRANSACTIONS,
-	nodes = process.env.BIN_ID_NODES,
-	mainnetStat = process.env.BIN_ID_MAINNETSTAT,
-	revenue = process.env.BIN_ID_REVENUE;
+// middleware to set response headers
+app.use(headersMiddleware.headers)
 
+app.use(apiRoutes)
 
+// Handle other endpoints or invalid requests
+app.use((req, res) => {
+  res.status(404).json({ error: 'Endpoint not found' })
+})
 
-
-
-
-
-
-
-
-
-
+// Start the server
 app.listen(PORT, () => {
-	console.log('Hello World')
-});
+    console.log(`Server is running on http://localhost:${PORT}`)
+})

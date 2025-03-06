@@ -1,0 +1,38 @@
+.sidebar {
+  position: relative;
+  background-color: var(--sidebar-bg-color);
+
+  & .sidebar__link {
+    position: relative;
+    color: var(--sidebar-link-color);;
+    background-color: var(--sidebar-link-bg-color);
+    transition: all .4s ease-in;
+
+    &:hover, &.active {
+      color: white;
+      background-color: var(--sidebar-item-active);
+    }
+
+    &.collapsed {
+      & .sidebar__link__icon {
+        position: absolute;
+        left: calc(50% - 12px);
+      }
+    }
+
+    & .fade-enter-active, & .fade-leave-active {
+      transition: opacity .4s;
+    }
+
+    & .fade-enter, & .fade-leave-to {
+      opacity: 0;
+    }
+  }
+
+  & .sidebar__collapse {
+    position: absolute;
+    right: .5rem;
+    bottom: 1.5rem;
+    cursor: pointer;
+  }
+}

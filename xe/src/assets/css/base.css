@@ -43,6 +43,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.monospace {
+  font-family: monospace;
+}
+
 .ellipsis {
   display: inline-flex;
   max-width: 19rem;
@@ -53,8 +57,10 @@ body {
 
 .table__col {
   font-variant-numeric: tabular-nums;
-}
 
-.monospace {
-  font-family: monospace;
+  &.table__col--sm {
+    & span {
+      max-width: 12rem;
+    }
+  }
 }

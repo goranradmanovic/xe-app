@@ -3,15 +3,15 @@
 		<DataTable 
 			v-model:filters="filters"
 			:value="data" 
-			paginator 
+			:paginator="!smTable"
 			:rows="10" 
 			:rowsPerPageOptions="[5, 10, 20, 50]" 
 			:loading="loading" 
 			stripedRows 
-			tableStyle="min-width: 50rem"
+			tableStyle="width: 100%"
 			responsiveLayout="scroll"
 		>
-			<template #header>
+			<template #header v-if="!smTable">
 				<div class="flex justify-content-end">
 					<IconField>
 						<InputIcon>
@@ -29,7 +29,7 @@
 				</div>
 			</template>
 
-			<Column v-for="col of coulmns" :key="col.field" :field="col.field" :header="col.header" class="table__col">
+			<Column v-for="col of cols" :key="col.field" :field="col.field" :header="col.header" class="table__col" :class="{'table__col--sm': smTable}">
 				<template #body="{ data }">
 					<template v-if="col.field === 'timestamp' || col.field === 'lastActive'">
 						<span class="inline-flex align-items-center gap-2 text-color-secondary">
@@ -115,6 +115,11 @@
 		},
 		relativeTime: {
 			type: Boolean,
+			required: false,
+			default: false
+		},
+		smTable: {
+			type: Boolean,
 			required: true,
 			default: false
 		}
@@ -123,8 +128,4 @@
 	const filters = ref({
 		global: { value: null, matchMode: FilterMatchMode.CONTAINS }
 	})
-
-	const coulmns = computed(() => props.removedField ? smTableCols() : props.cols)
-
-	const filteredCols = () => props.cols.filter(item => item.field === props.removedField)
 </script>

@@ -15,7 +15,7 @@ import Column from 'primevue/column'
 import InputText from 'primevue/inputtext'
 import IconField from 'primevue/iconfield'
 import InputIcon from 'primevue/inputicon'
-
+import Chart from 'primevue/chart'
 
 const app = createApp(App)
 
@@ -38,5 +38,6 @@ app.component('Column', Column)
 app.component('InputText', InputText)
 app.component('IconField', IconField)
 app.component('InputIcon', InputIcon)
+app.component('Chart', Chart)
 
 app.mount('#app')

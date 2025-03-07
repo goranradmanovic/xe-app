@@ -20,8 +20,8 @@
 
 body {
   min-height: 100vh;
-  /*color: var(--body-txt-color);
-  background-color: var(--body-bg-color);*/
+  /*color: var(--body-txt-color);*/
+  background-color: var(--body-bg-color);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family:
@@ -62,5 +62,11 @@ body {
     & span {
       max-width: 12rem;
     }
+  }
+}
+
+.overview {
+  & .overview__chart {
+    height: 28rem;
   }
 }

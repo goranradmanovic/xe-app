@@ -51,6 +51,9 @@
 }*/
 
 :root {
+  --body-bg-color: #f2f2f2;
+  --body-txt-color: #1d1d1d;
+
   --sidebar-bg-color: #1d1d1d;
   --sidebar-item-hover: #38a169;
   --sidebar-item-active: #0ECC5B;
@@ -69,8 +72,8 @@
 
 body {
   min-height: 100vh;
-  /*color: var(--color-text);
-  background: var(--color-background);*/
+  /*color: var(--body-txt-color);
+  background-color: var(--body-bg-color);*/
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family:
@@ -90,4 +93,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ellipsis {
+  display: inline-flex;
+  max-width: 19rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

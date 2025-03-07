@@ -1,18 +1,29 @@
 <template>
   <div class="blocks">
-    <h1>This is an Blocks page</h1>
+    <h1 class="mb-6">Blocks</h1>
+    <Table :title="'Blocks'" :data="blocksStore.blocksList?.record?.results" :cols="columns" :loading="blocksStore.loading" />
   </div>
 </template>
 
 <script setup>
+  import { onMounted } from 'vue'
   import { useBlocksStore } from '@/stores/blocks'
+  import Table from '@/components/table/Table.vue'
 
   // Accessing the Pinia store
   const blocksStore = useBlocksStore()
 
+  const columns = [
+    { field: 'height', header: 'Height' },
+    { field: 'hash', header: 'Block Hash' },
+    { field: 'dataHash', header: 'Data Hash' },
+    { field: 'ledgerHash', header: 'Ledger Hash' },
+    { field: 'total', header: 'Txs' },
+    { field: 'txCount', header: 'Total XE' },
+    { field: 'timestamp', header: 'Mined' }
+  ]
 
-  blocksStore.fetchBlocks()
-  console.log('blocks view loading 1 - ', blocksStore.loading)
-  console.log('blocks view - ', blocksStore.blocksList)
-  console.log('blocks view loading 2 - ', blocksStore.loading)
+  onMounted(() => {
+    blocksStore.fetchBlocks()
+  })
 </script>

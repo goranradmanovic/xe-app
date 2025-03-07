@@ -3,11 +3,19 @@ import './assets/css/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import router from './router'
+import App from './App.vue'
+
+// PrimeVue Components
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
+import Panel from 'primevue/panel'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
+import InputText from 'primevue/inputtext'
+import IconField from 'primevue/iconfield'
+import InputIcon from 'primevue/inputicon'
 
-import App from './App.vue'
-import router from './router'
 
 const app = createApp(App)
 
@@ -18,10 +26,17 @@ app.use(PrimeVue, {
 		preset: Aura,
 		options: {
 			prefix: 'p',
-			darkModeSelector: 'system',
+			darkModeSelector: 'light',
 			cssLayer: false
 		}
 	}
 })
+
+app.component('Panel', Panel)
+app.component('DataTable', DataTable)
+app.component('Column', Column)
+app.component('InputText', InputText)
+app.component('IconField', IconField)
+app.component('InputIcon', InputIcon)
 
 app.mount('#app')

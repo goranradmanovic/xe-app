@@ -1,17 +1,17 @@
 <template>
   <div class="blocks">
-    <h1 class="mb-6">Blocks</h1>
-    <Table :title="'Blocks'" :data="blocksStore.blocksList?.record?.results" :cols="columns" :loading="blocksStore.loading" :relativeTime="true" />
+    <h1 class="mb-6">Nodes</h1>
+    <Table :title="'Nodes'" :data="nodesStore.nodesList?.record?.results" :cols="columns" :loading="nodesStore.loading" />
   </div>
 </template>
 
 <script setup>
   import { onMounted } from 'vue'
-  import { useBlocksStore } from '@/stores/blocks'
+  import { useNodesStore } from '@/stores/nodes'
   import Table from '@/components/table/Table.vue'
 
   // Accessing the Pinia store
-  const blocksStore = useBlocksStore()
+  const nodesStore = useNodesStore()
 
   const columns = [
     { field: 'height', header: 'Height' },
@@ -24,6 +24,6 @@
   ]
 
   onMounted(() => {
-    blocksStore.fetchBlocks()
+    nodesStore.fetchNodes()
   })
 </script>

@@ -22,8 +22,8 @@
 	const links = ref([
 		{ 
 			path: '/',
-			icon: 'pi-home',
-			text: 'Dashboard'
+			icon: 'pi-table',
+			text: 'Overview'
 		},
 		{ 
 			path: '/blocks',

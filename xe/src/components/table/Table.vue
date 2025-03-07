@@ -9,6 +9,7 @@
 			:loading="loading" 
 			stripedRows 
 			tableStyle="min-width: 50rem"
+			responsiveLayout="scroll"
 		>
 			<template #header>
 				<div class="flex justify-content-end">
@@ -28,28 +29,50 @@
 				</div>
 			</template>
 
-			<Column v-for="col of coulmns" :key="col.field" :field="col.field" :header="col.header">
+			<Column v-for="col of coulmns" :key="col.field" :field="col.field" :header="col.header" class="table__col">
 				<template #body="{ data }">
-					<template v-if="col.field === 'timestamp'">
+					<template v-if="col.field === 'timestamp' || col.field === 'lastActive'">
 						<span class="inline-flex align-items-center gap-2 text-color-secondary">
 							<template v-if="relativeTime"><i class="pi pi-clock" /> {{ useRelativeDateTime(data[col.field]) }}</template>
 							<template v-else>{{ useDateTime(data[col.field]) }}</template>
 						</span>
 					</template>
 					<template v-else-if="col.field === 'data'">
-						<span class="ellipsis">{{ data[col.field].memo }}</span>
+						<span class="ellipsis">{{ data[col.field]?.memo }}</span>
 					</template>
 					<template v-else-if="col.field === 'icon'">
 						<i class="pi pi-arrow-right text-primary-500"></i>
 					</template>
 					<template v-else-if="col.field === 'status'">
-						<span class="flex gap-2 justify-items-center align-items-center"><i class="pi pi-check-circle text-primary-500"></i> Completed</span>
+						<span class="flex gap-2 justify-items-center align-items-center">
+							<i class="pi pi-check-circle text-primary-500"></i> Completed
+						</span>
 					</template>
 					<template v-else-if="col.field === 'amount'">
-						<span class="ellipsis">{{ useFormatNumber(data[col.field]) }}</span>
+						<span class="ellipsis monospace">{{ useFormatNumber(data[col.field]) }}</span>
+					</template>
+					<template v-else-if="col.field === 'address' || col.field === 'stake'">
+						<span class="ellipsis monospace">{{ data['node'][col.field] }}</span>
+					</template>
+					<template v-else-if="col.field === 'type'">
+						<span class="ellipsis capitalize">{{ data['node'][col.field] }}</span>
+					</template>
+					<template v-else-if="col.field === 'geo'">
+						<span class="ellipsis">
+							{{ data['node'][col.field]?.city }}{{ data['node'][col.field]?.city ? ',' : '' }} {{ data['node'][col.field]?.country }}
+						</span>
+					</template>
+					<template v-else-if="col.field === 'availability'">
+						<span class="ellipsis monospace">{{ useFormatPercentage(data[col.field]) }}</span>
+					</template>
+					<template v-else-if="col.field === 'online'">
+						<span class="flex gap-2 justify-items-center align-items-center">
+							<i class="pi pi-wifi" :class="{ 'text-primary-500': data[col.field] }"></i>
+							{{ data[col.field] ? 'Online' : 'Offline' }}
+						</span>
 					</template>
 					<template v-else>
-						<span class="ellipsis">{{ data[col.field] }}</span>
+						<span class="ellipsis monospace">{{ data[col.field] }}</span>
 					</template>
 				</template>
 			</Column>
@@ -61,6 +84,7 @@
 	import { ref, computed } from 'vue'
 	import { FilterMatchMode } from '@primevue/core/api'
 	import { useFormatNumber } from '@/composable/formatNumber.js'
+	import { useFormatPercentage } from '@/composable/formatPercentage.js'
 	import { useDateTime, useRelativeDateTime } from '@/composable/formatDateTime.js'
 
 	const props = defineProps({

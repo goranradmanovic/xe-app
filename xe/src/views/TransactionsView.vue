@@ -1,5 +1,5 @@
 <template>
-  <div class="blocks">
+  <div class="transactions">
     <h1 class="mb-6">Transactions</h1>
     <Table :title="'Transactions'" :data="transactionsStore.transactionsList?.record?.results" :cols="columns" :loading="transactionsStore.loading" />
   </div>

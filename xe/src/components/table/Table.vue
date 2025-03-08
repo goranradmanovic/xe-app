@@ -34,7 +34,7 @@
 					<template v-if="col.field === 'timestamp' || col.field === 'lastActive'">
 						<span class="inline-flex align-items-center gap-2 text-color-secondary">
 							<template v-if="relativeTime"><i class="pi pi-clock" /> {{ useRelativeDateTime(data[col.field]) }}</template>
-							<template v-else>{{ useDateTime(data[col.field]) }}</template>
+							<template v-else><span class="text-sm">{{ useDateTime(data[col.field]) }}</span></template>
 						</span>
 					</template>
 					<template v-else-if="col.field === 'data'">
@@ -120,7 +120,7 @@
 		},
 		smTable: {
 			type: Boolean,
-			required: true,
+			required: false,
 			default: false
 		}
 	})

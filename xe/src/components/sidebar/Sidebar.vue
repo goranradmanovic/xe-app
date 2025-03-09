@@ -1,6 +1,6 @@
 <template>
 	<aside class="sidebar min-h-screen flex flex-column gap-6 align-items-center px-2 py-4 transition-duration-400 transition-ease-in" :style="{ width: sidebarStore.getSidebarWidth }">
-		<img src="../../assets/images/xe-logo.svg" alt="logo" />
+		<img src="@/assets/images/xe-logo.svg" alt="logo" />
 
 		<nav class="flex flex-column gap-3 w-full">
 			<template v-for="link in links" :key="link.text">
@@ -9,7 +9,7 @@
 		</nav>
 
 		<span @click="sidebarStore.toggleSidebar" class="sidebar__collapse">
-			<i class="text-2xl pi" :class="{ 'pi-chevron-left': !sidebarStore.getCollapsed, 'pi-chevron-right': sidebarStore.getCollapsed}"></i>
+			<i class="pi" :class="{ 'pi-chevron-left': !sidebarStore.getCollapsed, 'pi-chevron-right': sidebarStore.getCollapsed}"></i>
 		</span>
 	</aside>
 </template>
@@ -39,6 +39,16 @@
 			path: '/nodes',
 			icon: 'pi-sitemap',
 			text: 'Nodes'
+		},
+		{ 
+			path: '/settings',
+			icon: 'pi-cog',
+			text: 'Settings'
+		},
+		{ 
+			path: '/profile',
+			icon: 'pi-user',
+			text: 'Profile'
 		}
 	])
 

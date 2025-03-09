@@ -31,9 +31,20 @@
 
   & .sidebar__collapse {
     position: absolute;
-    right: .5rem;
-    bottom: 1.5rem;
+    top: 2rem;
+    right: -1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
     cursor: pointer;
     color: white;
+    background-color: var(--sidebar-item-active);
+
+    & i {
+      font-size: 1.2rem;
+    }
   }
 }

@@ -1,4 +1,5 @@
 .sidebar {
+  display: none !important;
   position: relative;
   background-color: var(--sidebar-bg-color);
 

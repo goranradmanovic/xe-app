@@ -1,7 +1,11 @@
 <template>
-  <div class="transactions">
-    <h1 class="mb-6">Transactions</h1>
-    <Table :title="'Transactions'" :data="transactionsStore.transactionsList?.record?.results" :cols="columns" :loading="transactionsStore.loading" />
+  <div class="transactions grid">
+    <div class="col-12">
+      <h1 class="mb-6">Transactions</h1>
+    </div>
+    <div class="col-12">
+      <Table :title="'Transactions'" :data="transactionsStore.transactionsList?.record?.results" :cols="columns" :loading="transactionsStore.loading" />
+    </div>
   </div>
 </template>
 

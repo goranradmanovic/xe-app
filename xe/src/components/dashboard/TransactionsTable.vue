@@ -1,5 +1,5 @@
 <template>
-	<div class="col-6">
+	<div class="lg:col-6 md:col-12 col-12">
 		<Loader v-if="transactionsStore.loading" />
 		<Table v-else :title="'Recent Transactions'" :data="transactionsList" :cols="transactionsColumns" :loading="transactionsStore.loading" :smTable="true" />
 	</div>

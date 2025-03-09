@@ -1,5 +1,5 @@
 <template>
-	<div class="col-6">
+	<div class="lg:col-6 md:col-12 col-12">
 		<Panel header="Coin Value">
 			<Loader v-if="coinStore.loader" />
 			<Chart type="line" :data="coinChartData" :options="chartOptions" class="overview__chart" />

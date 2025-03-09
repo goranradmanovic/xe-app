@@ -1,5 +1,5 @@
 <template>
-	<div class="col-12">
+	<div class="lg:col-12 md:col-12 col-12">
 		<Panel header="Network Map">
 			<Loader v-if="nodesStore.loader" />
 			<Map v-else :markers="geoNodes" />

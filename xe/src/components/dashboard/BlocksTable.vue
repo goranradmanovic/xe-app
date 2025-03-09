@@ -1,5 +1,5 @@
 <template>
-	<div class="col-6">
+	<div class="lg:col-6 md:col-12 col-12">
 		<Loader v-if="blocksStore.loading" />
 		<Table v-else :title="'Recent Blocks'" :data="blockList" :cols="blocksColumns" :loading="blocksStore.loading" :relativeTime="true" :smTable="true" />
 	</div>

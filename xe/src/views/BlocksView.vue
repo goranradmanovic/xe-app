@@ -1,7 +1,11 @@
 <template>
-  <div class="blocks">
-    <h1 class="mb-6">Blocks</h1>
-    <Table :title="'Blocks'" :data="blocksStore.blocksList?.record?.results" :cols="columns" :loading="blocksStore.loading" :relativeTime="true" />
+  <div class="blocks grid">
+    <div class="col-12">
+      <h1 class="mb-6">Blocks</h1>
+    </div>
+    <div class="col-12">
+      <Table :title="'Blocks'" :data="blocksStore.blocksList?.record?.results" :cols="columns" :loading="blocksStore.loading" :relativeTime="true" />
+    </div>
   </div>
 </template>
 

@@ -4,11 +4,11 @@
 			<h1 class="mb-3">Settings</h1>
 		</div>
 
-		<div class="col-8">
+		<div class="lg:col-8 col-12">
 			<Panel header="App Settings">
 				<Skeleton class="mb-3" animation="none" />
-				<Skeleton width="25rem" class="mb-3" animation="none" />
-				<Skeleton width="20rem" class="mb-3" animation="none" />
+				<Skeleton width="45%" class="mb-3" animation="none" />
+				<Skeleton width="80%" class="mb-3" animation="none" />
 				<Skeleton height="2rem" class="mb-3" animation="none" />
 				<Skeleton height="4rem" class="mb-3" animation="none" />
 				<Skeleton height="2rem" class="mb-3" animation="none" />

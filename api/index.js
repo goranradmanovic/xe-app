@@ -6,9 +6,10 @@ const express = require('express'),
 	headersMiddleware = require('./middlewares/headers.middleware'),
 	apiRoutes = require('./routes/Api.routes')
 
-// middleware to set response headers
+// Middleware to set response headers
 app.use(headersMiddleware.headers)
 
+// Use API routes
 app.use(apiRoutes)
 
 // Handle other endpoints or invalid requests

@@ -92,14 +92,14 @@
     import Loader from '@/components/loader/Loader.vue'
 
     const mainNetStatStore = useMainNetStatStore(),
-        mainNetStat = ref([])
+      mainNetStat = ref([])
 
     onMounted(() => {
-        initMainNetStat()
+      initMainNetStat()
     })
 
     const initMainNetStat = async () => {
-        await mainNetStatStore.fetchMainNetStat()
-        mainNetStat.value = mainNetStatStore.mainNetStatList?.record || []
+      await mainNetStatStore.fetchMainNetStat()
+      mainNetStat.value = mainNetStatStore.mainNetStatList?.record || []
     }
 </script>

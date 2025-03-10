@@ -1,3 +1,4 @@
+// Middleware headers to be included in every API request
 function headers(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*') // Allow all origins
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS') // Allowed methods

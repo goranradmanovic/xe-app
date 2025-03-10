@@ -1,3 +1,4 @@
+// Set the chart options for formatting data and chart UI
 export const useChartOptions = () => {
 	const documentStyle = getComputedStyle(document.documentElement),
 	  textColor = documentStyle.getPropertyValue('--p-text-color'),

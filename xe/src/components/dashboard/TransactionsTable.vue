@@ -1,7 +1,6 @@
 <template>
 	<div class="lg:col-6 md:col-12 col-12">
-		<Loader v-if="transactionsStore.loading" />
-		<Table v-else :title="'Recent Transactions'" :data="transactionsList" :cols="transactionsColumns" :loading="transactionsStore.loading" :smTable="true" />
+		<Table :title="'Recent Transactions'" :data="transactionsList" :cols="transactionsColumns" :loading="transactionsStore.loading" :smTable="true" />
 	</div>
 </template>
 
@@ -9,7 +8,6 @@
 	import { ref, onMounted } from 'vue'
 	import { useTransactionsStore } from '@/stores/transactions'
 	import Table from '@/components/table/Table.vue'
-	import Loader from '@/components/loader/Loader.vue'
 
 	const transactionsStore = useTransactionsStore(),
 		transactionsList = ref([]),

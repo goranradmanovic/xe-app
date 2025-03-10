@@ -2,7 +2,7 @@
 	<div class="lg:col-6 md:col-12 col-12">
 		<Panel header="On Chain Revenue">
 			<Loader v-if="revenueStore.loader" />
-			<Chart type="line" :data="chainChartData" :options="chartOptions" class="overview__chart" />
+			<Chart type="line" :data="chainChartData" :options="chartOptions" class="overview__chart fade-in" />
 		</Panel>
 	</div>
 </template>

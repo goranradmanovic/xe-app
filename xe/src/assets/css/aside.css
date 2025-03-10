@@ -1,7 +1,15 @@
 .sidebar {
-  display: none !important;
   position: relative;
   background-color: var(--sidebar-bg-color);
+  transition: all .4s ease-in-out;
+
+  &.close__menu {
+    width: 80px;
+  }
+  
+  &.open__menu {
+    width: 240px;
+  }
 
   & .sidebar__link {
     position: relative;
@@ -46,6 +54,22 @@
 
     & i {
       font-size: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 10;
+    height: 100lh;
+
+    &.close__menu {
+      transform: translateX(-240px);
+    }
+
+    & .sidebar__collapse {
+      display: none;
     }
   }
 }

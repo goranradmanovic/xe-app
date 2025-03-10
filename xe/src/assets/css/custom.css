@@ -1,0 +1,78 @@
+.wrapper__content {
+  & button.mob__nav__btn {
+    display: none;
+    position: absolute;
+    right: .5rem;
+
+    & span {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper__content {
+    & button.mob__nav__btn {
+      display: flex;
+    }
+  }
+}
+
+.overview {
+  & .overview__chart {
+    height: 28rem;
+  }
+
+  & .overview__link {
+    & .overview__link__img {
+      width: 100%;
+      height: 17.4rem;
+      border-radius: .25rem;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 38rem;
+}
+
+.table__col {
+  font-variant-numeric: tabular-nums;
+
+  &.table__col--sm {
+    & span {
+      max-width: 12rem;
+    }
+  }
+}
+
+.card__txt-cls {
+  color: var(--sidebar-item-active);
+}
+
+.fade-in {
+  display: flex;
+  opacity: 1;
+  transition-property: display, opacity;
+  transition-duration: 2s;
+  transition-behavior: allow-discrete;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.ellipsis {
+  display: inline-flex;
+  max-width: 19rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

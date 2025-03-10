@@ -8,7 +8,6 @@
 			:rowsPerPageOptions="[5, 10, 20, 50]" 
 			:loading="loading" 
 			stripedRows 
-
 			scrollable
 		>
 			<!-- Search Header -->
@@ -50,38 +49,38 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { FilterMatchMode } from '@primevue/core/api'
-import { useFormatNumber } from '@/composable/formatNumber.js'
-import { useFormatPercentage } from '@/composable/formatPercentage.js'
-import { useDateTime, useRelativeDateTime } from '@/composable/formatDateTime.js'
-import Loader from '@/components/loader/Loader.vue'
+	import { ref, computed } from 'vue'
+	import { FilterMatchMode } from '@primevue/core/api'
+	import { useFormatNumber } from '@/composable/formatNumber.js'
+	import { useFormatPercentage } from '@/composable/formatPercentage.js'
+	import { useDateTime, useRelativeDateTime } from '@/composable/formatDateTime.js'
+	import Loader from '@/components/loader/Loader.vue'
 
-const props = defineProps({
-	title: { type: String, default: '' },
-	cols: { type: Array, required: true },
-	data: { type: Array, required: true, default: [] },
-	loading: { type: Boolean, default: false },
-	relativeTime: { type: Boolean, default: false },
-	smTable: { type: Boolean, default: false },
-})
+	const props = defineProps({
+		title: { type: String, default: '' },
+		cols: { type: Array, required: true },
+		data: { type: Array, required: true, default: [] },
+		loading: { type: Boolean, default: false },
+		relativeTime: { type: Boolean, default: false },
+		smTable: { type: Boolean, default: false },
+	})
 
-const filters = ref({
-	global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-})
+	const filters = ref({
+		global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+	})
 
-// Formatters for specific fields
-const formatters = computed(() => ({
-	timestamp: data => props.relativeTime ? useRelativeDateTime(data.timestamp) : useDateTime(data.timestamp),
-	lastActive: data => props.relativeTime ? useRelativeDateTime(data.lastActive) : useDateTime(data.lastActive),
-	data: data => data.data?.memo || '-',
-	status: () => '✔ Completed',
-	amount: data => useFormatNumber(data.amount),
-	address: data => data.node?.address || '-',
-	stake: data => data.node?.stake || '-',
-	type: data => data.node?.type || '-',
-	geo: data => `${data.node?.geo?.city || ''}${data.node?.geo?.city ? ',' : ''} ${data.node?.geo?.country || ''}`,
-	availability: data => useFormatPercentage(data.availability),
-	online: data => (data.online ? '✅ Online' : '❌ Offline'),
-}))
+	// Formatters for specific fields
+	const formatters = computed(() => ({
+		timestamp: data => props.relativeTime ? useRelativeDateTime(data.timestamp) : useDateTime(data.timestamp),
+		lastActive: data => props.relativeTime ? useRelativeDateTime(data.lastActive) : useDateTime(data.lastActive),
+		data: data => data.data?.memo || '-',
+		status: () => '✔ Completed',
+		amount: data => useFormatNumber(data.amount),
+		address: data => data.node?.address || '-',
+		stake: data => data.node?.stake || '-',
+		type: data => data.node?.type || '-',
+		geo: data => `${data.node?.geo?.city || ''}${data.node?.geo?.city ? ',' : ''} ${data.node?.geo?.country || ''}`,
+		availability: data => useFormatPercentage(data.availability),
+		online: data => (data.online ? '✅ Online' : '❌ Offline'),
+	}))
 </script>

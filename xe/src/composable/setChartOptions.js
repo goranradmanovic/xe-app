@@ -25,6 +25,9 @@ export const useChartOptions = () => {
 	    },
 	    y: {
 	      ticks: {
+			  callback: function (value) {
+			  	return Math.abs(value) >= 1_000_000_000 ? value / 1000000000 : value
+			  },
 	          color: textColorSecondary
 	      },
 	      grid: {

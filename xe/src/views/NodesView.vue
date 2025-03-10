@@ -1,7 +1,7 @@
 <template>
   <div class="nodes grid">
     <div class="col-12">
-      <h1 class="mb-6">Nodes</h1>
+      <h1 class="mb-1">Nodes</h1>
     </div>
     <div class="col-12">
       <Table :title="'Nodes'" :data="nodesStore.nodesList?.record?.results" :cols="columns" :loading="nodesStore.loading" :relativeTime="true" />

@@ -13,7 +13,7 @@
 <script setup>
 	const props = defineProps({
 		title: { type: String, default: '' },
-		content: { type: String, default: '' },
+		content: { type: [String, Number], default: '' },
 		iconClass: { type: String, default: '' }
 	})
 </script>

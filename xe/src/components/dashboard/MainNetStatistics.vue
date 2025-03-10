@@ -6,7 +6,7 @@
     <div class="lg:col-6 md:col-12 col-12">
       <Panel>
         <Loader v-if="mainNetStatStore.loading" />
-        <div class="grid" v-else>
+        <div class="grid fade-in" v-else>
           <div class="lg:col-6 col-12">
             <Card :title="'Blocks Total'" 
               :content="useFormatBigNumber(mainNetStat?.blocks?.total)" />
@@ -25,7 +25,7 @@
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Block Time last 24 hrs'" 
-              :content="mainNetStat?.blocks?.time" />
+              :content="mainNetStat?.blocks?.time + 's'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Blocks / Hour last 24 hrs'" 
@@ -45,7 +45,7 @@
     <div class="lg:col-6 md:col-12 col-12">
       <Panel>
         <Loader v-if="mainNetStatStore.loading" />
-        <div class="grid" v-else>
+        <div class="grid fade-in" v-else>
           <div class="col-12">
             <a href="https://en.wikipedia.org/wiki/Blockchain" target="_blank" class="overview__link flex">
               <img src="@/assets/images/blockchain-placeholder.webp" alt="Blockchain image placeholder" class="overview__link__img"/>

@@ -3,18 +3,15 @@ import { defineStore } from 'pinia'
 
 export const useSidebarStore = defineStore('sidebar', () => {
   // Store
-  const collapsed = ref(false),
-    sidebarWidth = ref(240),
-    sidebarWidthCollapsed = ref(80)
+  const collapsed = ref(false)
 
   // Getters
-  const getSidebarWidth = computed(() => `${collapsed.value ? sidebarWidthCollapsed.value : sidebarWidth.value}px`),
-    getCollapsed = computed(() => collapsed.value)
+  const getCollapsed = computed(() => collapsed.value)
 
   // Action
   function toggleSidebar() {
     collapsed.value = !collapsed.value
   }
 
-  return { getSidebarWidth, getCollapsed, toggleSidebar }
+  return { getCollapsed, toggleSidebar }
 })

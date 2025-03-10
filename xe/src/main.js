@@ -20,6 +20,7 @@ import Chart from 'primevue/chart'
 import Card from 'primevue/card'
 import Skeleton from 'primevue/skeleton'
 import Avatar from 'primevue/avatar'
+import Button from 'primevue/button'
 
 const app = createApp(App)
 
@@ -46,5 +47,6 @@ app.component('Chart', Chart)
 app.component('Card', Card)
 app.component('Skeleton', Skeleton)
 app.component('Avatar', Avatar)
+app.component('Button', Button)
 
 app.mount('#app')

@@ -1,7 +1,7 @@
 <template>
   <div class="overview grid">
     <div class="col-12">
-      <h1 class="mb-3">Overview</h1>
+      <h1 class="mb-1">Overview</h1>
     </div>
 
     <MainNetStatistics />

@@ -1,7 +1,7 @@
 <template>
 	<div class="overview grid">
 		<div class="col-12">
-			<h1 class="mb-3">Profile</h1>
+			<h1 class="mb-1">Profile</h1>
 		</div>
 
 		<div class="lg:col-8 col-12">

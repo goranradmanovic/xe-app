@@ -1,7 +1,6 @@
 <template>
 	<div class="lg:col-6 md:col-12 col-12">
-		<Loader v-if="blocksStore.loading" />
-		<Table v-else :title="'Recent Blocks'" :data="blockList" :cols="blocksColumns" :loading="blocksStore.loading" :relativeTime="true" :smTable="true" />
+		<Table :title="'Recent Blocks'" :data="blockList" :cols="blocksColumns" :loading="blocksStore.loading" :relativeTime="true" :smTable="true" />
 	</div>
 </template>
 
@@ -9,7 +8,6 @@
 	import { ref, onMounted } from 'vue'
 	import { useBlocksStore } from '@/stores/blocks'
 	import Table from '@/components/table/Table.vue'
-	import Loader from '@/components/loader/Loader.vue'
 
 	const blocksStore = useBlocksStore(),
 		blockList = ref([]),

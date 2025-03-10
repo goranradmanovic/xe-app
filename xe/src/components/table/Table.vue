@@ -9,6 +9,7 @@
 			:loading="loading" 
 			stripedRows 
 			scrollable
+			tableClass="xxx"
 		>
 			<!-- Search Header -->
 			<template #header v-if="!smTable">

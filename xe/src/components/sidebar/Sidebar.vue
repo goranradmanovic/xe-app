@@ -1,6 +1,6 @@
 <template>
     <aside class="sidebar min-h-screen flex flex-column gap-6 align-items-center px-2 py-4 " :class="{ 'open__menu': !sidebarStore.getCollapsed, 'close__menu': sidebarStore.getCollapsed }">
-        <img src="@/assets/images/xe-logo.svg" alt="logo" />
+        <img src="@/assets/images/logo.svg" alt="logo" class="sidebar__logo" />
 
         <nav class="flex flex-column gap-3 w-full">
             <template v-for="link in links" :key="link.text">

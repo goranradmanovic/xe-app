@@ -2,7 +2,7 @@
 	<div class="lg:col-6 md:col-12 col-12">
 		<Panel header="Coin Value">
 			<Loader v-if="coinStore.loader" />
-			<Chart type="line" :data="coinChartData" :options="chartOptions" class="overview__chart fade-in" />
+			<Chart type="bar" :data="coinChartData" :options="chartOptions" class="overview__chart fade-in" />
 		</Panel>
 	</div>
 </template>
@@ -33,12 +33,12 @@
 			coinEthData = records.map(item => item.ethPerXE * 1000),
 			coinUsdData = records.map(item => item.usdPerXE)
 
-		const orangeColor = documentStyle.getPropertyValue('--p-orange-600'),
+		const grayColor = documentStyle.getPropertyValue('--p-gray-500'),
 			greenColor = documentStyle.getPropertyValue('--p-green-600')
 
 		const coinDataset = [
-			{ label: 'Price in ETH', data: coinEthData, fill: false, borderColor: orangeColor, tension: 0.4 },
-			{ label: 'Price in USD', data: coinUsdData, fill: false, borderColor: greenColor, tension: 0.4 }
+			{ label: 'Price in ETH', data: coinEthData, fill: false, backgroundColor: grayColor, borderColor: grayColor, tension: 0.4 },
+			{ label: 'Price in USD', data: coinUsdData, fill: false, backgroundColor: greenColor, borderColor: greenColor, tension: 0.4 }
 		]
 
 		coinChartData.value = useChartData(coinLabels, coinDataset)

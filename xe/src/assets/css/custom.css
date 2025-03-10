@@ -39,6 +39,11 @@
   height: 38rem;
 }
 
+.transactions__wrapper {
+  max-width: 97rem;
+  width: 100%;
+}
+
 .table__col {
   font-variant-numeric: tabular-nums;
 

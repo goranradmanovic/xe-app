@@ -5,10 +5,21 @@
 
   &.close__menu {
     width: 80px;
+
+    & .sidebar__logo {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
   }
   
   &.open__menu {
     width: 240px;
+  }
+
+  & .sidebar__logo {
+    width: 5.5rem;
+    height: 5.5rem;
+    transition: width .4s ease-in, height .4s ease-in;
   }
 
   & .sidebar__link {
@@ -63,6 +74,7 @@
     position: absolute;
     z-index: 10;
     height: 100lh;
+    box-shadow: 6px 0 20px 6px rgba(0,0,0,.5);
 
     &.close__menu {
       transform: translateX(-240px);

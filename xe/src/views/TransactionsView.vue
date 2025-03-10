@@ -4,7 +4,9 @@
       <h1 class="mb-1">Transactions</h1>
     </div>
     <div class="col-12">
-      <Table :title="'Transactions'" :data="transactionsStore.transactionsList?.record?.results" :cols="columns" :loading="transactionsStore.loading" />
+      <div class="transactions__wrapper">
+        <Table :title="'Transactions'" :data="transactionsStore.transactionsList?.record?.results" :cols="columns" :loading="transactionsStore.loading" />
+      </div>
     </div>
   </div>
 </template>

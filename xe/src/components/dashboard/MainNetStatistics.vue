@@ -9,35 +9,43 @@
         <div class="grid fade-in" v-else>
           <div class="lg:col-6 col-12">
             <Card :title="'Blocks Total'" 
-              :content="useFormatBigNumber(mainNetStat?.blocks?.total)" />
+              :content="useFormatBigNumber(mainNetStat?.blocks?.total)"
+              :iconClass="'pi-box text-500'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Blocks last 24 hrs'" 
-              :content="useFormatBigNumber(mainNetStat?.blocks?.day)" />
+              :content="useFormatBigNumber(mainNetStat?.blocks?.day)" 
+              :iconClass="'pi-box text-500'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Transactions Total'" 
-              :content="useFormatBigNumber(mainNetStat?.transactions?.total)" />
+              :content="useFormatBigNumber(mainNetStat?.transactions?.total)" 
+              :iconClass="'pi-send text-500'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Transactions last 24 hrs'" 
-              :content="mainNetStat?.transactions?.day" />
+              :content="mainNetStat?.transactions?.day" 
+              :iconClass="'pi-send text-500'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Block Time last 24 hrs'" 
-              :content="mainNetStat?.blocks?.time + 's'" />
+              :content="mainNetStat?.blocks?.time + 's'" 
+              :iconClass="'pi-clock text-500'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Blocks / Hour last 24 hrs'" 
-              :content="mainNetStat?.blocks?.hour" />
+              :content="mainNetStat?.blocks?.hour" 
+              :iconClass="'pi-clock text-500'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Stakes Total'" 
-              :content="mainNetStat?.stakes?.count" />
+              :content="mainNetStat?.stakes?.count" 
+              :iconClass="'pi-exclamation-triangle text-500'" />
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'Staked XE 20.5% of supply'" 
-              :content="useFormatBigNumber(mainNetStat?.stakes?.stakedAmount)" />
+              :content="useFormatBigNumber(mainNetStat?.stakes?.stakedAmount)" 
+              :iconClass="'pi-exclamation-triangle text-500'" />
           </div>
         </div>
       </Panel>

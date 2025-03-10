@@ -64,7 +64,8 @@
 		loading: { type: Boolean, default: false },
 		relativeTime: { type: Boolean, default: false },
 		smTable: { type: Boolean, default: false },
-	})
+	}),
+	dateFormat = 'l LTS'
 
 	const filters = ref({
 		global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -72,8 +73,8 @@
 
 	// Formatters for specific fields
 	const formatters = computed(() => ({
-		timestamp: data => props.relativeTime ? useRelativeDateTime(data.timestamp) : useDateTime(data.timestamp),
-		lastActive: data => props.relativeTime ? useRelativeDateTime(data.lastActive) : useDateTime(data.lastActive),
+		timestamp: data => props.relativeTime ? useRelativeDateTime(data.timestamp) : useDateTime(data.timestamp, dateFormat),
+		lastActive: data => props.relativeTime ? useRelativeDateTime(data.lastActive) : useDateTime(data.lastActive, dateFormat),
 		data: data => data.data?.memo || '-',
 		status: () => '✔ Completed',
 		amount: data => useFormatNumber(data.amount),

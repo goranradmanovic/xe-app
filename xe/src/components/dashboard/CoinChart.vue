@@ -10,7 +10,7 @@
 <script setup>
 	import { ref, onMounted } from 'vue'
 	import { useCoinStore } from '@/stores/coin'
-	import { useDateChart } from '@/composable/formatDateTime.js'
+	import { useDateTime} from '@/composable/formatDateTime.js'
 	import { useChartOptions } from '@/composable/setChartOptions.js'
 	import { useChartData } from '@/composable/setChartData.js'
 	import Loader from '@/components/loader/Loader.vue'
@@ -18,7 +18,8 @@
 	const coinStore = useCoinStore(),
 		documentStyle = getComputedStyle(document.documentElement),
 		chartOptions = useChartOptions(),
-		coinChartData = ref()
+		coinChartData = ref(),
+		dateFormat = 'MMM D'
 
 	onMounted(() => {
 		formatCoinChartData()
@@ -29,7 +30,7 @@
 
 		const records = coinStore.coinList?.record || []
 
-		const coinLabels = records.map(item => useDateChart(item.date)),
+		const coinLabels = records.map(item => useDateTime(item.date, dateFormat)),
 			coinEthData = records.map(item => item.ethPerXE * 1000),
 			coinUsdData = records.map(item => item.usdPerXE)
 

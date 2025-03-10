@@ -9,7 +9,7 @@
 
 <script setup>
 	import { ref, onMounted } from 'vue'
-	import { useDateChart } from '@/composable/formatDateTime.js'
+	import { useDateTime } from '@/composable/formatDateTime.js'
 	import { useChartOptions } from '@/composable/setChartOptions.js'
 	import { useChartData } from '@/composable/setChartData.js'
 	import { useRevenueStore } from '@/stores/revenue'
@@ -18,7 +18,8 @@
 	const revenueStore = useRevenueStore(),
 		documentStyle = getComputedStyle(document.documentElement),
 		chartOptions = useChartOptions(),
-		chainChartData = ref()
+		chainChartData = ref(),
+		dateFormat = 'MMM D'
 
 	onMounted(() => {
 		formatChainChartData()
@@ -29,7 +30,7 @@
 
 		const records = revenueStore.revenueList?.record?.results || []
 
-		const chainLabels = records.map(item => useDateChart(item.start)),
+		const chainLabels = records.map(item => useDateTime(item.start, dateFormat)),
 			chainData = records.map(item => item.amount),
 			greenColor = documentStyle.getPropertyValue('--p-green-600')
 

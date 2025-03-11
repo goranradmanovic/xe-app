@@ -22,5 +22,5 @@ app.get('/', (req, res) => res.send('Vercel test route, successfully tested!'))
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`)
+    console.log(`Server is running on port ${PORT}`)
 })

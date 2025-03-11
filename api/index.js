@@ -17,9 +17,6 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Endpoint not found' })
 })
 
-// Test route for vercel
-app.get('/', (req, res) => res.send('Vercel test route, successfully tested!'))
-
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)

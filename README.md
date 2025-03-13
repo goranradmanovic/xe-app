@@ -36,7 +36,7 @@ Ensure that the necessary environment variables are set up for fetching data fro
 
 ## Live Demo
 
-You can check out the live demo here: [XE Blockchain App](https://www.markdownguide.org)
+You can check out the live demo here: [XE Blockchain App](https://xe-app.vercel.app/)
 
 ---
 

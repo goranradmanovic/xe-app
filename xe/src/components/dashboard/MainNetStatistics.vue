@@ -66,7 +66,7 @@
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'XE Earning last 24h'" 
-              :content="useFormatBigNumber(mainNetStat?.ernings?.day?.amount)" 
+              :content="useFormatBigNumber(mainNetStat?.ernings?.['24h']?.amount)" 
               :iconClass="'pi-wave-pulse text-red-600'" />
           </div>
           <div class="lg:col-6 col-12">
@@ -76,7 +76,7 @@
           </div>
           <div class="lg:col-6 col-12">
             <Card :title="'XE Burned last 30 days'" 
-              :content="useFormatBigNumber(mainNetStat?.burns?.month.amount)" 
+              :content="useFormatBigNumber(mainNetStat?.burns?.['30d'].amount)" 
               :iconClass="'pi-bolt text-yellow-600'" />
           </div>
         </div>

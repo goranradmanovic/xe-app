@@ -25,7 +25,5 @@
     isMobile()
   })
 
-  const isMobile = () => {
-    navigator.userAgentData.mobile ? sidebarStore.setCollapsed(true) : sidebarStore.setCollapsed(false)
-  }
+  const isMobile = () => sidebarStore.setCollapsed(navigator.userAgentData.mobile)
 </script>

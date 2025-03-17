@@ -11,24 +11,21 @@
 </template>
 
 <script setup>
-  import { computed, onMounted, watch, ref } from 'vue'
+  import { computed, onMounted } from 'vue'
   import { RouterLink, RouterView } from 'vue-router'
   import { useSidebarStore } from '@/stores/sidebar'
   import Sidebar from '@/components/sidebar/Sidebar.vue'
 
-  const sidebarStore = useSidebarStore(),
-    isMobile = ref(window.matchMedia("(max-width: 768px)").matches)
-
-  watch(isMobile, newVal => sidebarStore.setCollapsed(newVal))
+  const sidebarStore = useSidebarStore()
 
   const btnIcon = computed(() => !sidebarStore.getCollapsed ? 'pi pi-times' : 'pi pi-bars'),
     btnSeverityType = computed(() => !sidebarStore.getCollapsed ? 'danger' : 'success')
 
   onMounted(() => {
-    window.addEventListener("resize", updateIsMobile)
+    isMobile()
   })
 
-  const updateIsMobile = () => {
-    isMobile.value = window.matchMedia("(max-width: 768px)").matches
+  const isMobile = () => {
+    navigator.userAgentData.mobile ? sidebarStore.setCollapsed(true) : sidebarStore.setCollapsed(false)
   }
 </script>

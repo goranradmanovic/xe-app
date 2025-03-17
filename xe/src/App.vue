@@ -22,7 +22,7 @@
     btnSeverityType = computed(() => !sidebarStore.getCollapsed ? 'danger' : 'success')
 
   onMounted(() => {
-    isMobile()
+    //isMobile()
   })
 
   const isMobile = () => sidebarStore.setCollapsed(navigator.userAgentData.mobile)
